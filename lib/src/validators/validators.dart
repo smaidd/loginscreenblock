@@ -3,10 +3,10 @@ import 'dart:async';
 class Validators {
   final emailValidator = StreamTransformer<String, String>.fromHandlers(
     handleData: (email, sink) {
-      if (email.endsWith('@trencadis.ro')) {
+      if (!email.endsWith('@trencadis.ro') || email.isEmpty) {
+        sink.addError('Invalid mail');
+      }else{
         sink.add(email);
-      } else {
-        sink.addError('Enter a valid email');
       }
     },
   );

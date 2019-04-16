@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class LoginScreen extends StatelessWidget {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
@@ -78,12 +79,25 @@ class LoginScreen extends StatelessWidget {
     return StreamBuilder(
       stream: bloc.submitValue,
       builder: (context, snapshot) {
-        return RaisedButton(
-            elevation: 4.0,
-            splashColor: Colors.red,
-            color: Colors.deepOrange,
-            child: Text('Sign In'),
-            onPressed: snapshot.hasError ? null : signInUserAndPassword);
+        return Container(
+          margin: EdgeInsets.only(top: 20.0),
+          width: 125.0,
+          height: 35.0,
+          child: RaisedButton(
+              child: Text(
+                'Sign In',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              elevation: 4.0,
+              splashColor: Colors.red,
+              color: Colors.deepOrange,
+              onPressed: snapshot.hasError ? null : signInUserAndPassword),
+        );
       },
     );
   }
@@ -92,10 +106,17 @@ class LoginScreen extends StatelessWidget {
     return StreamBuilder(
       stream: bloc.submitValue,
       builder: (context, snapshot) {
-        return RaisedButton(
-            color: Colors.deepOrange,
-            child: Text('Sign Up'),
-            onPressed: snapshot.hasError ? null : signUpUserAndPassword);
+        return Container(
+          margin: EdgeInsets.only(top: 20.0),
+          width: 125.0,
+          height: 35.0,
+          child: RaisedButton(
+              child: Text('Sign Up'),
+              elevation: 4.0,
+              splashColor: Colors.red,
+              color: Colors.deepOrange,
+              onPressed: snapshot.hasError ? null : signUpUserAndPassword),
+        );
       },
     );
   }
@@ -110,14 +131,25 @@ class LoginScreen extends StatelessWidget {
       print('login esuat');
     }
   }
+
   void signUpUserAndPassword() async {
     try {
       FirebaseUser user = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
-          email: _emailController.text, password: _passwordController.text);
+              email: _emailController.text, password: _passwordController.text);
       print('login succes');
     } catch (e) {
-      print('User exista');
+      print('user exista');
     }
+  }
+
+  void show(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (x) {
+          return new SimpleDialog(children: <Widget>[
+            new Center(child: new Container(child: new Text('foo')))
+          ]);
+        });
   }
 }
