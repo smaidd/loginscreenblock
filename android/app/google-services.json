@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "710842980286",
+    "firebase_url": "https://streamflutter.firebaseio.com",
+    "project_id": "streamflutter",
+    "storage_bucket": "streamflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710842980286:android:06662939ab5a5531",
+        "android_client_info": {
+          "package_name": "com.example.loginscreenblock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710842980286-q0pisauihrkq5p5r01mnrcmnk0p1bs8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjGNLsxVglbt7kww4eMUtsb4Xyh1vKwPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710842980286-q0pisauihrkq5p5r01mnrcmnk0p1bs8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
